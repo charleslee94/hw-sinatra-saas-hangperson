@@ -795,7 +795,7 @@ Visit this URL and verify that the Start New Game page appears.
 * Self-check: where is the HTML code for this page?
 
 > It's in `views/new.erb`, which is processed into HTML by the `erb
-> :new` directive.
+j :new` directive.
 
 Verify that when you click the New Game button, you get an error.  This
 is because we've deliberately left the `<form>` that encloses this

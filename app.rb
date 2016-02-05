@@ -35,7 +35,9 @@ class HangpersonApp < Sinatra::Base
   end
 
   post '/new' do
-    "Hello World"
+    word = HangpersonGame.get_random_word
+    @game = HangpersonGame.new word
+    redirect '/show'
   end
   
   # Use existing methods in HangpersonGame to process a guess.
