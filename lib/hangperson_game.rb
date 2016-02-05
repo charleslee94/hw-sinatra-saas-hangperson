@@ -23,7 +23,6 @@ class String
     !!self.match(/\p{Lower}/)
     # or: !self.is_upper?
   end
-end
 
   attr_accessor :word
   attr_accessor :guesses
@@ -95,5 +94,5 @@ end
     uri = URI('http://watchout4snakes.com/wo4snakes/Random/RandomWord')
     Net::HTTP.post_form(uri ,{}).body
   end
-
 end
+
