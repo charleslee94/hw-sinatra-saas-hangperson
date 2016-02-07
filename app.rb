@@ -34,11 +34,6 @@ class HangpersonApp < Sinatra::Base
     redirect '/show'
   end
 
-  post '/new' do
-    word = HangpersonGame.get_random_word
-    @game = HangpersonGame.new word
-    redirect '/show'
-  end
   
   # Use existing methods in HangpersonGame to process a guess.
   # If a guess is repeated, set flash[:message] to "You have already used that letter."
