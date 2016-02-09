@@ -14,14 +14,15 @@ class HangpersonGame
     @wrong_guesses = ''
   end
 
-class String
-  def is_upper?
-    !!self.match(/\p{Upper}/)
-  end
+  class String
+    def is_upper?
+      !!self.match(/\p{Upper}/)
+    end
 
-  def is_lower?
-    !!self.match(/\p{Lower}/)
-    # or: !self.is_upper?
+    def is_lower?
+      !!self.match(/\p{Lower}/)
+      # or: !self.is_upper?
+    end
   end
 
   attr_accessor :word
@@ -46,7 +47,8 @@ class String
     end
     if @word.include? char
         @guesses += char
-        if check_win_or_lose
+        outcome = check_win_or_lose
+        if check_win_or_lose == :win
           return :win
         end
         return true
@@ -80,9 +82,9 @@ class String
     end
     if !matched.include? '-'
       return :win
+    elsif @wrong_guesses.length == 7
+      return :lose
     else
-
-      end
       return :play
     end
   end
@@ -94,5 +96,5 @@ class String
     uri = URI('http://watchout4snakes.com/wo4snakes/Random/RandomWord')
     Net::HTTP.post_form(uri ,{}).body
   end
-end
 
+end
